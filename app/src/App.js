@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import Game from './Game'
 
+const host = window.document.location.host.replace(/:.*/, '')
+const server = window.location.protocol.replace("http", "ws") + host + (window.location.port ? ':8000' : '');
+
 //
 class App extends Component {
   state = {
@@ -15,7 +18,7 @@ class App extends Component {
       <div className="App">
         <Game 
           gameId={gameId}
-          server="ws://192.168.0.16:8000"
+          server={server}
         />
       </div>
     );

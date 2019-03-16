@@ -57,6 +57,7 @@ class Game extends Component {
       console.log('Rejoining!!!')
       this.room = this.client.rejoin('game', this.state.sessionId)
     } else {
+      console.log('Sending Join')
       this.room = this.client.join('game', { gameId })
     }
 
