@@ -5,7 +5,7 @@
 Note: Please replace server address with your ip address in `./client/src/App` line #18
 
 ```
-cd client
+cd app
 npm install
 npm run start
 ```
