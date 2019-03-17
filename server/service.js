@@ -19,7 +19,7 @@ app.get('/health-check', (req, res) => {
 })
 
 const gameServer = new colyseus.Server({
-  pingTimeout: 0,
+  // pingTimeout: 0,
   server: createServer(app),
   // presence: new colyseus.MemsharedPresence(),
 })

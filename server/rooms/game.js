@@ -43,7 +43,7 @@ class Game extends Room {
     try {
       if (consented) throw new Error('just close!')
 
-      await this.allowReconnection(client, 5)
+      await this.allowReconnection(client, 10);
       console.log('CLIENT RECONNECTED: ', client.sessionId)
     } catch(err) {
       console.log(err)
