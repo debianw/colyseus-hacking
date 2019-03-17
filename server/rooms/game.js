@@ -38,13 +38,13 @@ class Game extends Room {
 
   // When a client leaves the room
   async onLeave(client, consented) {
-    console.log('IS CONSENTED ?', consented)
+    console.log('IS CONSENTED ? ', consented, ' clientId: ', client.id, ' sessionId: ', client.sessionId)
 
     try {
       if (consented) throw new Error('just close!')
 
-      await this.allowReconnection(client, 10);
-      console.log('CLIENT RECONNECTED: ', client.sessionId)
+      await this.allowReconnection(client, 120);
+      console.log('CLIENT RECONNECTED: ', client.id, ' sessionId: ', client.sessionId)
     } catch(err) {
       console.log(err)
       this.sendMessage(`${client.id} left.`)

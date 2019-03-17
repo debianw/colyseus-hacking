@@ -4,6 +4,7 @@ import Game from './Game'
 
 const host = window.document.location.host.replace(/:.*/, '')
 const server = window.location.protocol.replace("http", "ws") + host + (window.location.port ? ':8000' : '');
+// const server = `ws://dev-rt.gambit.com/example`
 
 //
 class App extends Component {
