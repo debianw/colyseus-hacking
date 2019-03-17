@@ -9,7 +9,7 @@ const GameRoom = require('./rooms/game')
 const app = express()
 const port = process.env.PORT || 8000
 
-
+// ------------------- THIS WORKS -----------------------
 // app.get('/health-check', (req, res) => {
 //   res.json({
 //     ok: true,
@@ -28,6 +28,8 @@ const port = process.env.PORT || 8000
 // gameServer.listen(port)
 // console.log(`Worker Game service listening on port ${port}`)
 
+
+// ----------------------- THIS IS NOT WORKING --------------------------
 if (cluster.isMaster) {
   // BEGIN ------------------------------------ MASTER ----------------------------------
   console.log('Starting master game service')

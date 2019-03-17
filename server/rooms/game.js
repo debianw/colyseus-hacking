@@ -1,6 +1,6 @@
 //
 const { Room } = require('colyseus')
-// const cluster = require('cluster')
+const cluster = require('cluster')
 const uuid = require('uuid/v4')
 
 //
@@ -14,9 +14,9 @@ class Game extends Room {
 
   // Checks if a new client is allowed to join
   requestJoin(options, isNew) {
-    // console.log('requestJoin: ', options, ' isNew: ', isNew, ' worker: ', cluster.worker.id)
-    console.log('requestJoin: ', options, ' isNew: ', isNew)
-    return true
+    console.log('requestJoin: ', options, ' isNew: ', isNew, ' worker: ', cluster.worker.id)
+    // Prevent the client from joining the same room from another browser tab
+    return this.clients.filter(c => c.id === options.clientId).length === 0
   }
 
   // When client successfully join the room
@@ -27,8 +27,8 @@ class Game extends Room {
 
   // When a client sends a message
   onMessage(client, message) {
-    // console.log(`Client ${client.id} sends: `, message, ' in worker: ', cluster.worker.id)
-    console.log(`Client ${client.id} sends: `, message)
+    console.log(`Client ${client.id} sends: `, message, ' in worker: ', cluster.worker.id)
+    // console.log(`Client ${client.id} sends: `, message)
     this.sendMessage(message)
   }
 
